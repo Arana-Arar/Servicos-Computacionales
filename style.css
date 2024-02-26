@@ -1,106 +1,220 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@800&display=swap');
-
-$primary-color-text: #fff;
-
-* {
+/*Menu Principal*/
+* {padding: 0;
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box;}
+ 
+ 
+html {font-size: 62.5%;}
+ 
+*:not(i) {font-family: "Poppins", sans-serif;}
+
+header {position: flex;
+       width: 100%;
+       background-color:#232323;
+       padding: 3rem 5rem;
+       z-index: 993;
+       margin: 0 auto;
+       align-items:center;
+       height: 300px;
+       color:darkturquoise}
+ 
+nav {display: fixed;
+   justify-content: space-between;
+   align-items: center;
+   opacity: 90%;
+   float: left;
+   }
+ 
+nav ul {list-style: none;
+       display: flex;
+       gap: 2rem;
+       width: 650px;}
+ 
+nav a {font-size: 1.8rem;
+   text-decoration: none;}
+
+nav a#logo {color:darkturquoise;
+           font-weight: 700;
+           font-size: 16px;}
+
+nav ul a {color:darkturquoise;
+         font-weight: 600;}
+
+nav ul a:hover {border-bottom: 2px solid #F516A4}
+ 
+section#home {height: 100vh;
+             display:grid;
+             place-items: left;}
+
+h1 {font-size: 4rem; font-family:lobster;}
+ 
+#ham-menu {display: flex;}
+ 
+nav ul.active {left: 0;}
+ 
+@media only screen and (max-width: 991px) 
+   {html {font-size: 56.25%;}
+   header {padding: 2.2rem 5rem;} }
+
+@media only screen and (max-width: 761px) {
+   html {font-size: 50%;}
+   #ham-menu {display: flex; color: #ffffff;}
+   nav a#logo, #ham-menu {font-size: 3.2rem;}
+   nav ul {background-color: black;
+           position:fixed;
+           left: -20vw;
+           top: 73.6px;
+           height: calc(100vh - 73.6px);
+           display:flex;
+           flex-direction:column-reverse;
+           align-items: center;
+           align-content: center;
+           justify-content: space-around;
+           transition: 1s;
+           gap: 0;
+           line-height: 70px;
+           text-align: center;
+           opacity: 50%;} 
+           }
+
+@media only screen and (max-width: 575px) {
+html {font-size: 46.87%;}
+
+header {padding: 2rem 3rem;}
+
+nav ul {top: 65.18px;height: calc(100vh - 65.18px);}
+
+img{width: auto; height: auto;}}
+
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+
+.article1{font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; background-color: black; font-size: 14px;}
+
+/*Termina Menu Principal*/
+
+.article2{background-color:crimson; font-size: 14px; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;}
+
+
+@keyframes slide {
+	0% { transform: translateX(0); }
+	10% { transform: translateX(0); }
+
+	15% { transform: translateX(-100%); }
+	30% { transform: translateX(-100%); }
+
+	35% { transform: translateX(-200%); }
+	50% { transform: translateX(-200%); }
+
+	55% { transform: translateX(-300%); }
+	70% { transform: translateX(-300%); }
+
+	75% { transform: translateX(-400%); }
+	90% { transform: translateX(-400%); }
+
+	95% { transform: translateX(-500%); }
+	100% { transform: translateX(-500%); }
 }
-  body {
-    min-height: 100vh;
-    background-image: url('https://source.unsplash.com/L8oIdSYOTKs');
-    background-size: cover;
-    background-position: center;
-  }
 
-  header {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding: 2rem 0;
+* { box-sizing: border-box; }
 
-    h1 {
-      font-family: 'Orbitron', sans-serif;
-      font-weight: 800;
-      color: $primary-color-text;
-      font-size: 3rem;
-    }
+html { scroll-behavior: smooth; }
 
-    nav ul {
-      display: flex;
+body {
+	font-family: sans-serif;
+}
 
-      li {
-        list-style: none;
+.wrapper {
+	max-width: 1200px;
+	margin: 0 auto;
+}
 
-        a {
-          text-decoration: none;
-          color: $primary-color-text;
-          font-size: 1rem;
-          padding: 1rem 1.5rem;
-          transition: all .4s;
+.slider {
+	position: relative;
+}
 
-          &:hover{
-            opacity: 0.7;
-          }
-        }
-      }
-    }
+.slides {
+	position: relative;
+	display: flex;
+	overflow: hidden;
+}
 
-    .fa-bars {
-      color: #fff;
-      font-size: 1.5rem;
-      cursor: pointer;
-      display: none;
-    }
+.slide {
+	width: 100vw;
+	flex-shrink: 0;
+	animation-name: slide;
+	animation-duration: 20s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
 
-    .show-menu {
-      opacity: 1;
-      visibility: visible;
-    }
+.slides:hover .slide {
+	animation-play-state: paused;
+}
 
-    a:hover {
-      transition: all 0.4s;
-    }
-  }
-    /* Media Query */
-    @media (max-width: 900px) {
-      header{ 
-        nav ul {
-        flex-direction: column;
-        background-color: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(15px);
-        border-radius: 1rem;
-        position: absolute;
-        right: 0.7rem;
-        top: 100px;
-        width: 400px;
-        padding: 1rem;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.4s;
+.slide img {
+	width: 100%;
+	vertical-align: top;
+}
 
-        li {
-          padding: 1rem;
-          text-align: center;
-        }
-      }
+.slide a {
+	width: 100%;
+	display: inline-block;
+	position: relative;
+}
 
-      .fa-bars {
-        display: block;
-      }
-    }
-  }
+.caption {
+	color: white;
+	text-shadow: 1px 1px black;
+	font-size: 8vw;
+	position: absolute;
+	bottom: 8vw;
+	right: 4vw;
+}
 
-  @media (max-width: 500px) {
-    header{ 
-      nav{ 
-        display: flex;
-        justify-content: center;
-        ul {
-          width: 95%;
-        }
-      }
-    }
-  }
+.slide:target {
+	animation-name: none;
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 50;
+}
+
+.slider-controler {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	text-align: center;
+	padding: 5px;
+	background-color: rgba(0,0,0,0.5);
+	z-index: 100;
+}
+
+.slider-controler li {
+	margin: 0 0.5rem;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.slider-controler a {
+	display: inline-block;
+	vertical-align: top;
+	text-decoration: none;
+	color: white;
+	font-size: 1.5rem;
+}
+
+@media only screen and (min-width: 1200px) {
+	.slide {
+		width: 1200px;
+	}
+
+	.caption {
+		font-size: 96px;
+		bottom: 96px;
+		right: 50px;
+	}
+}
