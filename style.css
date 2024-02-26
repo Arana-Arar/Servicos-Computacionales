@@ -60,7 +60,7 @@ nav ul.active {left: 0;}
    html {font-size: 50%;}
    #ham-menu {display: flex; color: #ffffff;}
    nav a#logo, #ham-menu {font-size: 3.2rem;}
-   nav ul {background-color: black;
+   nav ul {background-color:#232323;
            position:fixed;
            left: -20vw;
            top: 73.6px;
@@ -80,7 +80,7 @@ nav ul.active {left: 0;}
 @media only screen and (max-width: 575px) {
 html {font-size: 46.87%;}
 
-header {padding: 2rem 3rem;}
+header {padding: 2rem 3rem; background-color: #232323 opacity:50%;}
 
 nav ul {top: 65.18px;height: calc(100vh - 65.18px);}
 
@@ -213,7 +213,7 @@ body {
 	}
 
 	.caption {
-		font-size: 96px;
+		font-size: 70px;
 		bottom: 96px;
 		right: 50px;
 	}
